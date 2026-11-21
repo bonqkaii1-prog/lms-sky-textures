@@ -158,5 +158,5 @@ Calibrated in Studio: SkyboxFt faces -Z, Lf is on the right of Ft, no Up rotatio
 | zerix_Up_r270 | 140455736324459 |
 | zerix_Up_r90 | 93391419577821 |
 
-## Optional
-`v3/bright/stalker_*_bright.png` - Stalker faces with a gamma lift (the reference is very dark and Roblox crushes it further). Import them and swap the five stalker IDs in `IDS.faces.stalker` if you want the factory more readable.
+## v4 (neon)
+`v4/*_neon.png` - every sky with its painted detail (cracks, rims, linework, moons, windows) turned into glowing neon with a bloom halo; Stalker also lifted so it reads in-game. Import the whole `v4` folder; the IDs are wired in from the import.
