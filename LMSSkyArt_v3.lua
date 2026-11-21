@@ -25,23 +25,23 @@ local MIST = "rbxassetid://117668972455896"
 -- =============================================================================================================
 local IDS = {
 	faces = {
-		guest666 = { Ft = "110092140226298", Bk = "118558823512714", Lf = "114353190904757", Rt = "136437593872576", Up = "72097579801159" },
-		sanic = { Ft = "128831454039767", Bk = "91216895979219", Lf = "129670222652459", Rt = "130145655108792", Up = "126126224418765" },
-		["1x1x1x1"] = { Ft = "110358109424516", Bk = "120440170453519", Lf = "118918960744889", Rt = "110923847803757", Up = "72769561915234" },
-		bloxwatch = { Ft = "91445115063644", Bk = "133845523603104", Lf = "74367740308094", Rt = "91108324087895", Up = "122550294031745" },
-		doombringer = { Ft = "125963030480971", Bk = "70903754557306", Lf = "130746258368102", Rt = "72532810616900", Up = "93504045854474" },
-		ellernate = { Ft = "102233239689207", Bk = "102980894916348", Lf = "126923503970084", Rt = "108972570763820", Up = "104873759928982" },
-		herobrine = { Ft = "95093738511106", Bk = "96046777122812", Lf = "85378076014425", Rt = "121741944982311", Up = "88689017138567" },
-		itrapped = { Ft = "72825678110864", Bk = "75714696319902", Lf = "138863085166138", Rt = "92048970884050", Up = "80821340280086" },
-		johndoe = { Ft = "100888665472346", Bk = "84419391156396", Lf = "85572948406672", Rt = "139742571340647", Up = "99604494072077" },
-		slasher = { Ft = "81348681625335", Bk = "130049941153652", Lf = "96411191252188", Rt = "77745224697436", Up = "133536515896935" },
-		rake = { Ft = "94238071552445", Bk = "137757040998630", Lf = "72205907440446", Rt = "74023214280466", Up = "88540215554673" },
-		flowers = { Ft = "87367581778203", Bk = "87014117342694", Lf = "85794393515341", Rt = "78823226260748", Up = "73638714874438" },
-		noli = { Ft = "81558971713707", Bk = "98959295212333", Lf = "106749027038952", Rt = "98320567310819", Up = "126488526895277" },
-		solemn = { Ft = "80273940139861", Bk = "118389924017133", Lf = "127531642094200", Rt = "137267810942151", Up = "104828211250826" },
-		stalker = { Ft = "140369025711769", Bk = "126494475171626", Lf = "134055000574990", Rt = "119600790503580", Up = "104277543186354" },
-		zerix = { Ft = "83355074078786", Bk = "73330060399492", Lf = "134847128551231", Rt = "138487596120896", Up = "132318885040196" },
-		c00lkidd = { Ft = "128995836722262", Bk = "130843590456573", Lf = "85612987949928", Rt = "80897100187274", Up = "88054488631389" },
+		guest666 = { Ft = "110936269612516", Bk = "80976106088206", Lf = "84805074513322", Rt = "138345014650422", Up = "74180881269358" },
+		sanic = { Ft = "94488840581738", Bk = "95748423495836", Lf = "107384307367752", Rt = "102279879875770", Up = "98906431284646" },
+		["1x1x1x1"] = { Ft = "81817352991859", Bk = "86340852870370", Lf = "101957873959153", Rt = "131705298283116", Up = "126861813361621" },
+		bloxwatch = { Ft = "113715298202245", Bk = "73115259719534", Lf = "114276326545612", Rt = "127931404169656", Up = "117676193585686" },
+		doombringer = { Ft = "121763463558069", Bk = "134322486659759", Lf = "120628596012679", Rt = "133971333117354", Up = "78774502605445" },
+		ellernate = { Ft = "80519741405230", Bk = "140435092305556", Lf = "76120526200113", Rt = "101387672574392", Up = "123698557948177" },
+		herobrine = { Ft = "139043071836062", Bk = "76344735613959", Lf = "103358724674911", Rt = "74215010217826", Up = "104054540112861" },
+		itrapped = { Ft = "77517679926251", Bk = "131426186691934", Lf = "120297974303374", Rt = "90480562956070", Up = "112774138604875" },
+		johndoe = { Ft = "131316407525769", Bk = "132985155786989", Lf = "139435491774203", Rt = "76410423867793", Up = "74342751190762" },
+		slasher = { Ft = "116467349085623", Bk = "94940828318056", Lf = "139356700453861", Rt = "84361751436725", Up = "89543725167318" },
+		rake = { Ft = "115160906121705", Bk = "126168658039624", Lf = "117385388483562", Rt = "132352706681293", Up = "102157234487753" },
+		flowers = { Ft = "121613712711312", Bk = "108654983450353", Lf = "77747532612725", Rt = "80452503876015", Up = "126982979273472" },
+		noli = { Ft = "108327851790349", Bk = "111737255870505", Lf = "106494106326827", Rt = "110083208013772", Up = "72292347156018" },
+		solemn = { Ft = "91966720391565", Bk = "83634545742721", Lf = "75850627803931", Rt = "84716542231610", Up = "84159122479205" },
+		stalker = { Ft = "125699565615531", Bk = "106780930895887", Lf = "101094971583959", Rt = "79698935825298", Up = "107803865866821" },
+		zerix = { Ft = "76936760072371", Bk = "114591865555959", Lf = "92089699662904", Rt = "72511015483239", Up = "104897338731151" },
+		c00lkidd = { Ft = "108632899064432", Bk = "115015988258794", Lf = "132353416983872", Rt = "128426900432095", Up = "71080975712486" },
 	},
 	util = {
 		chain = "127499333348695",
@@ -772,7 +772,7 @@ KILL.solemn = { fog = 0.2, spin = 0.15, clouds = { 0.5, 0.6, c3(225, 225, 225) }
 		glowAt(ctx, m.anchors.moon, 420, c3(255, 255, 255), 0.45, 0.1, 0.5)
 	end }
 
-KILL.stalker = { fog = 0.28, spin = 0.0, clouds = { 0.5, 0.75, c3(70, 36, 36) }, weather = { "ash", c3(150, 140, 140), 14 }, mistT = 0.35,
+KILL.stalker = { fog = 0.18, spin = 0.0, clouds = { 0.5, 0.75, c3(70, 36, 36) }, weather = { "ash", c3(150, 140, 140), 14 }, mistT = 0.35,
 	build = function(ctx, m, rng)
 		for _, k in ipairs({ "lamp1", "lamp2", "lamp3" }) do
 			local a = m.anchors[k]
@@ -873,9 +873,28 @@ function Art.spec(key)
 	K = K or {}
 	local fog = m.hz:Lerp(m.mid, 0.35)
 	local amb = lift(m.mid:Lerp(m.hz, 0.5), 1.4, 0.06)
+	-- [SKY 2026-11-21b] a dark painting must not darken the map: the grade only takes the sky's HUE (never its
+	-- darkness), and the light sampled from the skybox fades out as the sky gets darker (a near-black sky would
+	-- otherwise replace part of the outdoor light with black)
+	local hzMax = math.max(m.hz.R, m.hz.G, m.hz.B, 1e-3)
+	local hue = Color3.new(m.hz.R / hzMax, m.hz.G / hzMax, m.hz.B / hzMax)
+	local skyL = 0.299 * m.mid.R + 0.587 * m.mid.G + 0.114 * m.mid.B
+	local env = 0.4 * math.clamp(skyL * 7, 0.1, 1)
 	local build = function(ctx)
 		ctx.sprites, ctx.chains, ctx.floaters, ctx.rings, ctx.lamps, ctx.mist, ctx.fx = {}, {}, {}, {}, {}, {}, {}
 		ctx.boards = ctx.boards or {}
+		-- bloom that only catches the neon of the sky (high threshold, so lit map surfaces don't glow)
+		local cam = workspace.CurrentCamera
+		if cam and K.bloom ~= false then
+			local b = Instance.new("BloomEffect")
+			b.Name = "LMSSkyBloom"
+			b.Intensity = (K.bloom and K.bloom[1]) or 0.55
+			b.Size = (K.bloom and K.bloom[2]) or 30
+			b.Threshold = (K.bloom and K.bloom[3]) or 0.93
+			b.Parent = cam
+			ctx.dome.Destroying:Once(function() b:Destroy() end)
+			task.delay(600, function() if b.Parent and not ctx.dome.Parent then b:Destroy() end end)
+		end
 		local ok, err = pcall(mistBuild, ctx, lift(fog, 2.2, 0.04), { mistT = K.mistT, wispT = K.wispT })
 		if not ok then warn("[LMSSkyArt] mist", err) end
 		if v3 and K.build then
@@ -900,7 +919,7 @@ function Art.spec(key)
 		glare = 0,
 		atmColor = fog,
 		decay = m.mid,
-		tint = K.tint or Color3.new(1, 1, 1):Lerp(m.hz, 0.12),
+		tint = K.tint or Color3.new(1, 1, 1):Lerp(hue, 0.1),
 		contrast = 0.12,
 		saturation = K.saturation or 0.06,
 		gradeBrightness = 0,
@@ -911,8 +930,8 @@ function Art.spec(key)
 		exposure = 0,
 		shiftTop = m.mid,
 		shiftBottom = Color3.new(0, 0, 0),
-		envDiffuse = 0.4,
-		envSpecular = 0.4,
+		envDiffuse = env,
+		envSpecular = env,
 		spin = (v3 and K.spin) or 0.3,
 		yaw0 = 0,
 		clouds = v3 and K.clouds or nil,
