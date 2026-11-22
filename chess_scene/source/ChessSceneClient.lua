@@ -590,7 +590,7 @@ local function evaluate(t: number, dt: number)
 				local h = hash(k * 131 + win * 7 + (c.white and 1 or 2))
 				if h < 0.12 then
 					look = other.head.Position
-				elseif h < 0.18 and clock then
+				elseif h < 0.18 and btnW then
 					look = btnTop(c.white) - UP * 0.1
 				else
 					local f = math.floor(hash(win * 19 + k) * 8)
