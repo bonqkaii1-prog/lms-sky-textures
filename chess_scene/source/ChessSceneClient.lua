@@ -23,6 +23,7 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
 local LP = Players.LocalPlayer
+LP:SetAttribute("ChessScene", "loaded")
 local camera = workspace.CurrentCamera
 
 local V3, CF = Vector3.new, CFrame.new
@@ -31,16 +32,9 @@ local sin, cos, abs, min, max, clamp, sqrt, rad, pi = math.sin, math.cos, math.a
 -- ---------------------------------------------------------------------------------------------------------------
 -- scene
 -- ---------------------------------------------------------------------------------------------------------------
-local function findScene()
-	for _ = 1, 600 do
-		local s = workspace:FindFirstChild("ChessScene", true)
-		if s and s:IsA("Model") then return s end
-		task.wait(0.5)
-	end
-	return nil
-end
-local scene = findScene()
-if not scene then return end
+-- The lobby (and the cabin with it) is taken out of the workspace while a round is on and put back afterwards,
+-- so the scene is set up afresh every time it appears (see the run loop at the bottom).
+local function setup(scene: Model)
 
 local Loop = require(scene:WaitForChild("Loop") :: ModuleScript)
 local base = (scene:WaitForChild("Base") :: BasePart).CFrame -- floor point under the table centre; +Z = white's side
@@ -686,22 +680,66 @@ end
 do
 	local t0 = workspace:GetServerTimeNow()
 	for _, c in ipairs(chars) do
-		local tcf = torsoCF(c)
-		local r = restPose(c, "table", tcf)
+		local r = restPose(c, "table", torsoCF(c))
 		c.armR.p.x = r.r
 		c.armL.p.x = r.l
 	end
-	for _ = 1, 90 do evaluate(t0, 1 / 30) end
+	for i = 1, 90 do evaluate(t0 - (90 - i) / 30, 1 / 30) end
 end
 
+return evaluate, base
+end -- setup
+
 local ACTIVE_RANGE = 160
+local current: Model? = nil
+local evalFn: ((number, number) -> ())? = nil
+local baseCF: CFrame? = nil
+local loading = false
+local nextLook = 0
 local lastT = workspace:GetServerTimeNow()
-RunService:BindToRenderStep("ChessScene", Enum.RenderPriority.Character.Value + 1, function(dt)
+
+local function locate(): Model?
+	local map = workspace:FindFirstChild("Map")
+	local lobby = map and map:FindFirstChild("Lobby")
+	local cabin = lobby and lobby:FindFirstChild("Cabin")
+	local s = cabin and cabin:FindFirstChild("ChessScene")
+	if s and s:IsA("Model") then return s end
+	return nil
+end
+
+-- Heartbeat (after physics, before the frame is drawn): the rigs have no Animator, so nothing else writes their joints
+RunService.Heartbeat:Connect(function()
 	local t = workspace:GetServerTimeNow()
-	local cam = camera.CFrame.Position
-	if (cam - base.Position).Magnitude > ACTIVE_RANGE then lastT = t return end
-	dt = clamp(t - lastT, 0, 1 / 20)
+	if not (current and current.Parent and evalFn) then
+		current, evalFn = nil, nil
+		if loading or t < nextLook then lastT = t return end
+		nextLook = t + 1
+		local s = locate()
+		if s then
+			loading = true
+			LP:SetAttribute("ChessScene", "setup")
+			task.spawn(function()
+				local ok, e, b = pcall(setup, s)
+				if ok and e then
+					current, evalFn, baseCF = s, e, b
+					LP:SetAttribute("ChessScene", "running")
+				elseif not ok then
+					warn("[ChessScene] setup:", e)
+					LP:SetAttribute("ChessScene", "error: " .. tostring(e))
+				else
+					LP:SetAttribute("ChessScene", "no rigs")
+				end
+				loading = false
+			end)
+		else
+			LP:SetAttribute("ChessScene", "waiting for the lobby")
+		end
+		lastT = t
+		return
+	end
+	if baseCF and (camera.CFrame.Position - baseCF.Position).Magnitude > ACTIVE_RANGE then lastT = t return end
+	local dt = clamp(t - lastT, 1 / 240, 1 / 20)
 	lastT = t
-	local ok, err = pcall(evaluate, t, max(dt, 1 / 240))
+	local ok, err = pcall(evalFn :: any, t, dt)
 	if not ok then warn("[ChessScene]", err) end
 end)
